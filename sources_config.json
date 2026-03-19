@@ -1,0 +1,157 @@
+{
+  "run_policy": {
+    "max_items_per_source_per_run": 20
+  },
+  "extract_policy": {
+    "content_min_chars": 400
+  },
+  "tags": {
+    "postgresql": ["postgres", "engine"],
+    "mysql": ["mysql", "engine"],
+    "hyperscalers": ["dbaas", "vendor"]
+  },
+  "sources": [
+    {
+      "id": "pg_planet_home",
+      "category": "postgresql",
+      "tier": "analysis",
+      "name": "Planet PostgreSQL (home)",
+      "url": "https://planet.postgresql.org/",
+      "ingest": {
+        "method": "html_index",
+        "discovery": {
+          "allow_url_prefixes": ["https://planet.postgresql.org/"]
+        }
+      }
+    },
+    {
+      "id": "pg_planet_rss",
+      "category": "postgresql",
+      "tier": "analysis",
+      "name": "Planet PostgreSQL (RSS)",
+      "url": "https://planet.postgresql.org/rss20.xml",
+      "ingest": { "method": "rss" }
+    },
+    {
+      "id": "pg_release_notes",
+      "category": "postgresql",
+      "tier": "official",
+      "name": "PostgreSQL Release Notes",
+      "url": "https://www.postgresql.org/docs/release/",
+      "ingest": {
+        "method": "release_index"
+      }
+    },
+    {
+      "id": "pg_docs",
+      "category": "postgresql",
+      "tier": "official",
+      "name": "PostgreSQL Documentation",
+      "url": "https://www.postgresql.org/docs/",
+      "ingest": {
+        "method": "docs_root"
+      }
+    },
+    {
+      "id": "cloudnative_pg_blog_rss",
+      "category": "postgresql",
+      "tier": "analysis",
+      "name": "CloudNativePG Blog (RSS)",
+      "url": "https://cloudnative-pg.io/blog/index.xml",
+      "ingest": { "method": "rss" }
+    },
+    {
+      "id": "pganalyze_blog",
+      "category": "postgresql",
+      "tier": "analysis",
+      "name": "pganalyze Blog",
+      "url": "https://pganalyze.com/blog",
+      "ingest": { "method": "html_index" }
+    },
+    {
+      "id": "cybertec_pg_rss",
+      "category": "postgresql",
+      "tier": "analysis",
+      "name": "Cybertec PostgreSQL Blog (RSS)",
+      "url": "https://www.cybertec-postgresql.com/en/feed/",
+      "ingest": { "method": "rss" }
+    },
+    {
+      "id": "crunchydata_rss",
+      "category": "postgresql",
+      "tier": "analysis",
+      "name": "Crunchy Data Blog (RSS)",
+      "url": "https://www.crunchydata.com/blog/rss.xml",
+      "ingest": { "method": "rss" }
+    },
+    {
+      "id": "edb_rss",
+      "category": "postgresql",
+      "tier": "analysis",
+      "name": "EnterpriseDB Blog (RSS)",
+      "url": "https://www.enterprisedb.com/blog/rss.xml",
+      "ingest": { "method": "rss" }
+    },
+    {
+      "id": "citus_rss",
+      "category": "postgresql",
+      "tier": "analysis",
+      "name": "Citus Data Blog (RSS)",
+      "url": "https://www.citusdata.com/feed.xml",
+      "ingest": { "method": "rss" }
+    },
+
+    {
+      "id": "mysql_home",
+      "category": "mysql",
+      "tier": "official",
+      "name": "MySQL Developer Zone (home)",
+      "url": "https://dev.mysql.com/",
+      "ingest": {
+        "method": "html_index"
+      }
+    },
+    {
+      "id": "mysql_release_84",
+      "category": "mysql",
+      "tier": "official",
+      "name": "MySQL 8.4 Release Notes",
+      "url": "https://dev.mysql.com/doc/relnotes/mysql/8.4/en/",
+      "ingest": {
+        "method": "release_index"
+      }
+    },
+    {
+      "id": "mysql_planet_rss",
+      "category": "mysql",
+      "tier": "analysis",
+      "name": "Planet MySQL (RSS)",
+      "url": "https://planet.mysql.com/rss20.xml",
+      "ingest": { "method": "rss" }
+    },
+
+    {
+      "id": "aws_database_blog_pt",
+      "category": "hyperscalers",
+      "tier": "vendor",
+      "name": "AWS Database Blog (pt)",
+      "url": "https://aws.amazon.com/pt/blogs/database/",
+      "ingest": {
+        "method": "html_index",
+        "discovery": {
+          "allow_url_prefixes": ["https://aws.amazon.com/pt/blogs/database/"]
+        }
+      }
+    },
+    {
+      "id": "ms_releasecommunications_azure_rss",
+      "category": "hyperscalers",
+      "tier": "vendor",
+      "name": "Microsoft Azure Release Communications (RSS)",
+      "url": "https://www.microsoft.com/releasecommunications/api/v2/azure/rss",
+      "ingest": {
+        "method": "rss"
+      }
+    }
+  ]
+}

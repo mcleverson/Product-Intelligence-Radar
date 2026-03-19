@@ -1,0 +1,862 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: Product Intelligent Radar
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/ollama:0.0.6@f430f3eb959f4863b1e87171544a8fec179441b90deda5693c85f07712d2a68c
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 20
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1772129293348'
+        sourceType: iteration-start
+        targetType: llm
+      id: 1772129293348start-source-1772129310823-target
+      selected: false
+      source: 1772129293348start
+      sourceHandle: source
+      target: '1772129310823'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1772129293348'
+        sourceType: llm
+        targetType: code
+      id: 1772129310823-source-1772136940328-target
+      selected: false
+      source: '1772129310823'
+      sourceHandle: source
+      target: '1772136940328'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: iteration
+        targetType: code
+      id: 1772129293348-source-1772141336812-target
+      selected: false
+      source: '1772129293348'
+      sourceHandle: source
+      target: '1772141336812'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: end
+      id: 1772141336812-source-1772463906699-target
+      selected: false
+      source: '1772141336812'
+      sourceHandle: source
+      target: '1772463906699'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: if-else
+      id: 1772043509905-source-1772050206380-target
+      selected: false
+      source: '1772043509905'
+      sourceHandle: source
+      target: '1772050206380'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1772050206380-true-1772053798609-target
+      selected: false
+      source: '1772050206380'
+      sourceHandle: 'true'
+      target: '1772053798609'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: iteration
+      id: 1772053798609-source-1772129293348-target
+      selected: false
+      source: '1772053798609'
+      sourceHandle: source
+      target: '1772129293348'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1772050206380-ed1385ba-4b8f-4893-80ae-d87bd3b5f7be-1772543845244-target
+      selected: false
+      source: '1772050206380'
+      sourceHandle: ed1385ba-4b8f-4893-80ae-d87bd3b5f7be
+      target: '1772543845244'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1772543845244-source-1772568503478-target
+      source: '1772543845244'
+      sourceHandle: source
+      target: '1772568503478'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1772568503478-source-1772547940797-target
+      source: '1772568503478'
+      sourceHandle: source
+      target: '1772547940797'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: Start
+        type: start
+        variables:
+        - default: classify
+          hint: ''
+          label: mode
+          max_length: 20
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: mode
+        - default: ''
+          hint: ''
+          label: items
+          options: []
+          placeholder: ''
+          required: false
+          type: json_object
+          variable: items
+        - default: ''
+          hint: ''
+          label: classified_items
+          options: []
+          placeholder: ''
+          required: false
+          type: json_object
+          variable: classified_items
+      height: 161
+      id: '1772043509905'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 40492cc9-b5a9-47d5-9f60-73a899f12318
+            value: classify
+            varType: string
+            variable_selector:
+            - '1772043509905'
+            - mode
+          id: 'true'
+          logical_operator: and
+        - case_id: ed1385ba-4b8f-4893-80ae-d87bd3b5f7be
+          conditions:
+          - comparison_operator: contains
+            id: 0d2382d9-33f1-4dac-abf1-1ad5da6c76a9
+            value: report
+            varType: string
+            variable_selector:
+            - '1772043509905'
+            - mode
+          id: ed1385ba-4b8f-4893-80ae-d87bd3b5f7be
+          logical_operator: and
+        selected: false
+        title: SE/SENÃO
+        type: if-else
+      height: 172
+      id: '1772050206380'
+      position:
+        x: 455.8737401370307
+        y: 303
+      positionAbsolute:
+        x: 455.8737401370307
+        y: 303
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "from typing import Any, Dict, List\nimport re\n\n\ndef _to_list(obj:\
+          \ Any) -> List[Dict[str, Any]]:\n    if isinstance(obj, dict):\n       \
+          \ arr = obj.get(\"items\", [])\n        if isinstance(arr, list):\n    \
+          \        return [x for x in arr if isinstance(x, dict)]\n    return []\n\
+          \n\ndef _clean_markdown(md: str) -> str:\n    if not md:\n        return\
+          \ \"\"\n\n    # Remove markdown and HTML images\n    md = re.sub(r\"!\\[[^\\\
+          ]]*\\]\\([^\\)]*\\)\", \"\", md)\n    md = re.sub(r\"<img[^>]*>\", \"\"\
+          , md, flags=re.IGNORECASE)\n\n    # Remove large data URIs\n    md =\
+          \ re.sub(r\"data:image\\/[a-zA-Z0-9.+-]+;charset=[^)]*\", \"\", md)\n\n\
+          \    # Remove common boilerplate\n    drop_patterns = [\n        r\"^\\s*\\\
+          [Skip to main content\\].*$\",\n        r\"^\\s*Filter\\s*$\",\n       \
+          \ r\"^\\s*Loading\\.\\.\\.\\s*$\",\n        r\"^\\s*Save filters\\s*$\"\
+          ,\n        r\"^\\s*Clear filters\\s*$\",\n        r\"^\\s*Apply filters\\\
+          s*$\",\n    ]\n\n    lines = md.splitlines()\n    kept = []\n    for ln\
+          \ in lines:\n        if any(re.match(p, ln, flags=re.IGNORECASE) for p in\
+          \ drop_patterns):\n            continue\n        kept.append(ln)\n\n   \
+          \ md = \"\\n\".join(kept)\n\n    # Normalize spaces\n    md = md.replace(\"\
+          \\r\\n\", \"\\n\").replace(\"\\r\", \"\\n\")\n    md = re.sub(r\"[ \\t]+\"\
+          , \" \", md)\n    md = re.sub(r\"\\n{3,}\", \"\\n\\n\", md).strip()\n\n\
+          \    return md\n\n\ndef _normalize_item(it: Dict[str, Any]) -> Dict[str,\
+          \ Any]:\n    it2 = dict(it)\n\n    metadata = it2.get(\"metadata\", {})\
+          \ if isinstance(it2.get(\"metadata\"), dict) else {}\n\n    # Canonicalize\
+          \ fields used in prompt\n    it2[\"source_name\"] = it2.get(\"source_name\")\
+          \ or it2.get(\"provider\") or \"\"\n    it2[\"published_at\"] = it2.get(\"\
+          published_at\") or metadata.get(\"published_at\") or \"\"\n    it2[\"source_id\"\
+          ] = it2.get(\"source_id\") or metadata.get(\"source_id\") or \"\"\n    it2[\"\
+          tier\"] = it2.get(\"tier\") or metadata.get(\"tier\") or \"\"\n    it2[\"\
+          tags\"] = it2.get(\"tags\") or metadata.get(\"tags\") or []\n\n    # Clean\
+          \ markdown\n    md = it2.get(\"content_md\")\n    md = md if isinstance(md,\
+          \ str) else \"\"\n    md = _clean_markdown(md)\n    it2[\"content_md\"]\
+          \ = md\n\n    # Remove duplicates\n    if \"content_markdown\" in it2:\n\
+          \        del it2[\"content_markdown\"]\n\n    # Lean metadata\n    it2[\"\
+          metadata\"] = {\n        \"source_id\": it2.get(\"source_id\", \"\"),\n\
+          \        \"tier\": it2.get(\"tier\", \"\"),\n        \"tags\": it2.get(\"\
+          tags\", []),\n        \"published_at\": it2.get(\"published_at\", \"\"),\n\
+          \        \"content_len_sent\": len(md),\n    }\n\n    return it2\n\n\ndef\
+          \ main(items_obj: Any) -> Dict[str, Any]:\n    base = _to_list(items_obj)\n\
+          \    return {\"iter_array\": [_normalize_item(x) for x in base]}"
+        code_language: python3
+        outputs:
+          iter_array:
+            children: null
+            type: array[object]
+        selected: false
+        title: Organiza Classification
+        type: code
+        variables:
+        - value_selector:
+          - '1772043509905'
+          - items
+          value_type: object
+          variable: items_obj
+      height: 52
+      id: '1772053798609'
+      position:
+        x: 792.4423581511624
+        y: 176.6431809503261
+      positionAbsolute:
+        x: 792.4423581511624
+        y: 176.6431809503261
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        error_handle_mode: continue-on-error
+        flatten_output: false
+        height: 176
+        is_parallel: false
+        iterator_input_type: array[object]
+        iterator_selector:
+        - '1772053798609'
+        - iter_array
+        output_selector:
+        - '1772136940328'
+        - classified_row
+        output_type: array[object]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1772129293348start
+        title: Classification Iteration
+        type: iteration
+        width: 688
+      height: 176
+      id: '1772129293348'
+      position:
+        x: 1131.5333015176489
+        y: 55.945643357279124
+      positionAbsolute:
+        x: 1131.5333015176489
+        y: 55.945643357279124
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 688
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1772129293348start
+      parentId: '1772129293348'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 1155.5333015176489
+        y: 123.94564335727912
+      selectable: false
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1772129293348'
+        model:
+          completion_params:
+            temperature: 0.2
+          mode: chat
+          name: gemma3:27b
+          provider: langgenius/ollama/ollama
+        prompt_config:
+          jinja2_variables:
+          - value_selector:
+            - '1772129293348'
+            - item
+            variable: item
+        prompt_template:
+        - edition_type: jinja2
+          id: 601a394f-cb0f-489f-ab86-b6fbfe0669ce
+          jinja2_text: "Your Product Strategy here"
+          role: system
+          text: "You are a technical Product Manager and competitive intelligence\
+            \ analyst.\n\nClassify the item below.\n\nObjective:\nExtract relevant\
+            \ changes and opportunities for [YOUR PRODUCT],\
+            \ and identify if it is a competitive move, product change, pricing, region,\
+            \ operation, security, versions, extensions, or just noise.\n\nRules:\n\
+            1) Do not invent. Use only the provided content.\n2) If irrelevant, mark\
+            \ is_relevant=false and category=\"irrelevant\".\n3) If the content is\
+            \ not clear, reduce confidence.\n4) Return only valid JSON.\n5) Keep evidence\
+            \ with a maximum of 2 short excerpts.\n\nItem:\nurl: {{ item.get(\"url\"\
+            ,\"\") }}\ntitle: {{ item.get(\"title\",\"\") }}\nsource_name: {{ item.get(\"\
+            source_name\",\"\") }}\npublished_at: {{ item.get(\"published_at\",\"\"\
+            ) }}\n\ncontent:\n{{ item.get(\"content_markdown\",\"\") }}\n\nJSON Output:\n\
+            {\n  \"is_relevant\": true,\n  \"category\": \"pricing|feature|region|sla|limits|versions|extensions|operations|security|deprecation|incident|general_update|irrelevant\"\
+            ,\n  \"competitor_signal\": \"none|aws|gcp|azure|oracle|edb|crunchy|aiven|neon|supabase|other\"\
+            ,\n  \"impact_level\": \"low|medium|high\",\n  \"change_summary\": \"\"\
+            ,\n  \"opportunities\": [],\n  \"risks\": [],\n  \"confidence\": 0.0,\n\
+            \  \"evidence\": [\n    { \"quote\": \"\", \"why\": \"\" }\n  ]\n}"
+        selected: false
+        structured_output:
+          schema:
+            properties:
+              category:
+                enum:
+                - pricing
+                - feature
+                - region
+                - sla
+                - limits
+                - versions
+                - extensions
+                - operations
+                - security
+                - deprecation
+                - incident
+                - general_update
+                - irrelevant
+                type: string
+              change_summary:
+                type: string
+              competitor_signal:
+                enum:
+                - none
+                - aws
+                - gcp
+                - azure
+                - oracle
+                - edb
+                - crunchy
+                - aiven
+                - neon
+                - supabase
+                - other
+                type: string
+              confidence:
+                type: number
+              customer_scope:
+                enum:
+                - smb
+                - mid_market
+                - enterprise
+                - mixed
+                type: string
+              geo_scope:
+                enum:
+                - local
+                - regional
+                - global
+                type: string
+              impact_level:
+                enum:
+                - low
+                - medium
+                - high
+                type: string
+              is_relevant:
+                type: boolean
+              market_scope:
+                enum:
+                - niche
+                - segment
+                - broad
+                type: string
+              opportunities:
+                items:
+                  type: string
+                type: array
+              risks:
+                items:
+                  type: string
+                type: array
+              tam_signal:
+                type: string
+              value_potential:
+                enum:
+                - low
+                - medium
+                - high
+                type: string
+            required:
+            - is_relevant
+            - category
+            - impact_level
+            - change_summary
+            - confidence
+            type: object
+        structured_output_enabled: true
+        title: LLM Classification
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1772129310823'
+      parentId: '1772129293348'
+      position:
+        x: 129.5645102998983
+        y: 65
+      positionAbsolute:
+        x: 1261.0978118175472
+        y: 120.94564335727912
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        code: "import json\nfrom typing import Any, Dict, List\n\n\ndef _clamp01(x:\
+          \ Any, default: float = 0.5) -> float:\n    try:\n        v = float(x)\n\
+          \    except Exception:\n        return float(default)\n    if v < 0:\n \
+          \       return 0.0\n    if v > 1:\n        return 1.0\n    return float(v)\n\
+          \n\ndef _ensure_list_of_strings(v: Any) -> List[str]:\n    if isinstance(v,\
+          \ list):\n        out: List[str] = []\n        for it in v:\n          \
+          \  if isinstance(it, str):\n                s = it.strip()\n           \
+          \     if s:\n                    out.append(s)\n        return out\n   \
+          \ return []\n\n\ndef _pick_enum(v: Any, allowed: List[str], fallback: str)\
+          \ -> str:\n    if isinstance(v, str) and v in allowed:\n        return v\n\
+          \    return fallback\n\n\ndef _ensure_str(v: Any, fallback: str = \"\")\
+          \ -> str:\n    return v if isinstance(v, str) else fallback\n\n\ndef _to_bool(v:\
+          \ Any) -> bool:\n    if isinstance(v, bool):\n        return v\n    if isinstance(v,\
+          \ (int, float)):\n        return v != 0\n    if isinstance(v, str):\n  \
+          \      s = v.strip().lower()\n        if s in {\"true\", \"1\", \"yes\"\
+          , \"y\", \"sim\"}:\n            return True\n        if s in {\"false\"\
+          , \"0\", \"no\", \"n\", \"nao\", \"não\"}:\n            return False\n \
+          \   return False\n\n\ndef _ensure_dict(v: Any) -> Dict[str, Any]:\n    if\
+          \ isinstance(v, dict):\n        return v\n    if isinstance(v, str):\n \
+          \       try:\n            parsed = json.loads(v)\n            if isinstance(parsed,\
+          \ dict):\n                return parsed\n        except Exception:\n   \
+          \         return {}\n    return {}\n\n\ndef main(arg1: dict, arg2: dict):\n\
+          \    original = _ensure_dict(arg1)\n    out = _ensure_dict(arg2)\n\n   \
+          \ allowed_category = [\n        \"pricing\",\n        \"feature\",\n   \
+          \     \"region\",\n        \"sla\",\n        \"limits\",\n        \"versions\"\
+          ,\n        \"extensions\",\n        \"operations\",\n        \"security\"\
+          ,\n        \"deprecation\",\n        \"incident\",\n        \"general_update\"\
+          ,\n        \"irrelevant\",\n    ]\n\n    allowed_competitor = [\n      \
+          \  \"none\",\n        \"aws\",\n        \"gcp\",\n        \"azure\",\n \
+          \       \"oracle\",\n        \"edb\",\n        \"crunchy\",\n        \"\
+          aiven\",\n        \"neon\",\n        \"supabase\",\n        \"other\",\n\
+          \    ]\n\n    allowed_impact = [\"low\", \"medium\", \"high\"]\n    allowed_market_scope\
+          \ = [\"niche\", \"segment\", \"broad\"]\n    allowed_geo_scope = [\"local\"\
+          , \"regional\", \"global\"]\n    allowed_customer_scope = [\"smb\", \"mid_market\"\
+          , \"enterprise\", \"mixed\"]\n    allowed_value_potential = [\"low\", \"\
+          medium\", \"high\"]\n\n    impact_level = _pick_enum(out.get(\"impact_level\"\
+          ), allowed_impact, \"low\")\n\n    category = _pick_enum(out.get(\"category\"\
+          ), allowed_category, \"irrelevant\")\n    is_relevant = _to_bool(out.get(\"\
+          is_relevant\"))\n\n    classification = {\n        \"is_relevant\": is_relevant,\n\
+          \        \"category\": category,\n        \"competitor_signal\": _pick_enum(out.get(\"\
+          competitor_signal\"), allowed_competitor, \"none\"),\n        \"impact_level\"\
+          : impact_level,\n        \"market_scope\": _pick_enum(out.get(\"market_scope\"\
+          ), allowed_market_scope, \"segment\"),\n        \"geo_scope\": _pick_enum(out.get(\"\
+          geo_scope\"), allowed_geo_scope, \"global\"),\n        \"customer_scope\"\
+          : _pick_enum(out.get(\"customer_scope\"), allowed_customer_scope, \"mixed\"\
+          ),\n        \"value_potential\": _pick_enum(out.get(\"value_potential\"\
+          ), allowed_value_potential, impact_level),\n        \"tam_signal\": _ensure_str(out.get(\"\
+          tam_signal\"), \"\"),\n        \"change_summary\": _ensure_str(out.get(\"\
+          change_summary\"), \"\"),\n        \"opportunities\": _ensure_list_of_strings(out.get(\"\
+          opportunities\")),\n        \"risks\": _ensure_list_of_strings(out.get(\"\
+          risks\")),\n        \"confidence\": _clamp01(out.get(\"confidence\"), default=0.5),\n\
+          \    }\n\n    if classification[\"category\"] == \"irrelevant\":\n     \
+          \   classification[\"is_relevant\"] = False\n\n    if classification[\"\
+          is_relevant\"] and not classification[\"change_summary\"].strip():\n   \
+          \     classification[\"change_summary\"] = \"Update relevante para [YOUR PRODUCT],\
+          \ mas o resumo nao foi extraido com clareza.\"\n\n    classified_row = dict(original)\n\
+          \    classified_row[\"classification\"] = classification\n\n    return {\"\
+          classified_row\": classified_row}"
+        code_language: python3
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1772129293348'
+        outputs:
+          classified_row:
+            children: null
+            type: object
+        selected: false
+        title: Normalize Items
+        type: code
+        variables:
+        - value_selector:
+          - '1772129293348'
+          - item
+          value_type: object
+          variable: arg1
+        - value_selector:
+          - '1772129310823'
+          - structured_output
+          value_type: object
+          variable: arg2
+      height: 52
+      id: '1772136940328'
+      parentId: '1772129293348'
+      position:
+        x: 430
+        y: 68
+      positionAbsolute:
+        x: 1561.5333015176489
+        y: 123.94564335727912
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        code: "from typing import Any, Dict, List\n\n\ndef main(arg1: Any):\n    rows\
+          \ = arg1 or []\n\n    # If dict {\"items\":[...]} comes instead of list,\
+          \ normalize\n    if isinstance(rows, dict):\n        rows = rows.get(\"\
+          items\", [])\n    if not isinstance(rows, list):\n        rows = []\n\n\
+          \    out_rows: List[Dict[str, Any]] = []\n\n    for r in rows:\n       \
+          \ if not isinstance(r, dict):\n            continue\n\n        row = dict(r)\n\
+          \n        # Remove heavy payload here, outside the loop\n        for k in [\n\
+          \            \"content_md\",\n            \"content\",\n            \"content_html\"\
+          ,\n            \"content_markdown\",\n            \"raw_content\",\n   \
+          \         \"raw_text\",\n            \"text\",\n            \"markdown\"\
+          ,\n            \"html\",\n            \"scrape\",\n            \"page_content\"\
+          ,\n        ]:\n            row.pop(k, None)\n\n        # Optional: keep a\
+          \ short summary for traceability\n        # Preference: change_summary\
+          \ (from LLM) or text_summary/summary if they exist\n        summary = row.get(\"\
+          change_summary\") or row.get(\"text_summary\") or row.get(\"summary\") or\
+          \ \"\"\n        if isinstance(summary, str) and summary.strip():\n     \
+          \       row[\"text_summary\"] = \" \".join(summary.split())[:600]\n\n  \
+          \      # Avoid duplication\n        row.pop(\"summary\", None)\n\n     \
+          \   out_rows.append(row)\n\n    return {\"classified_items\": {\"items\"\
+          : out_rows}}"
+        code_language: python3
+        outputs:
+          classified_items:
+            children: null
+            type: object
+        selected: false
+        title: Return Items
+        type: code
+        variables:
+        - value_selector:
+          - '1772129293348'
+          - output
+          value_type: array[object]
+          variable: arg1
+      height: 52
+      id: '1772141336812'
+      position:
+        x: 1878.8359296844737
+        y: 55.945643357279124
+      positionAbsolute:
+        x: 1878.8359296844737
+        y: 55.945643357279124
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '1772141336812'
+          - classified_items
+          value_type: object
+          variable: classified_items
+        selected: false
+        title: Output
+        type: end
+      height: 89
+      id: '1772463906699'
+      position:
+        x: 2256.8057720215434
+        y: 55.945643357279124
+      positionAbsolute:
+        x: 2256.8057720215434
+        y: 55.945643357279124
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "from typing import Any, Dict, List\n\n\ndef _to_list(obj: Any) -> List[Dict[str,\
+          \ Any]]:\n    # Accept list directly\n    if isinstance(obj, list):\n   \
+          \     return [x for x in obj if isinstance(x, dict)]\n    # Accept dict\
+          \ with \"items\" key\n    if isinstance(obj, dict):\n        arr = obj.get(\"\
+          items\", [])\n        if isinstance(arr, list):\n            return [x for\
+          \ x in arr if isinstance(x, dict)]\n    return []\n\n\ndef _compact_for_report(r:\
+          \ Dict[str, Any]) -> Dict[str, Any]:\n    c = r.get(\"classification\",\
+          \ {}) if isinstance(r.get(\"classification\"), dict) else {}\n\n    return\
+          \ {\n        \"title\": r.get(\"title\", \"\"),\n        \"url\": r.get(\"\
+          url\", \"\"),\n        \"engine\": r.get(\"engine\", \"\"),\n        \"\
+          provider\": r.get(\"provider\", r.get(\"source_name\", \"\")),\n       \
+          \ \"published_at\": r.get(\"published_at\", \"\"),\n        \"category\"\
+          : c.get(\"category\", \"\"),\n        \"impact_level\": c.get(\"impact_level\"\
+          , \"\"),\n        \"competitor_signal\": c.get(\"competitor_signal\", \"\
+          \"),\n        \"change_summary\": c.get(\"change_summary\", \"\"),\n   \
+          \     \"confidence\": c.get(\"confidence\", 0.5),\n    }\n\n\ndef _chunk(lst:\
+          \ List[Dict[str, Any]], n: int) -> List[List[Dict[str, Any]]]:\n    if n\
+          \ <= 0:\n        n = 20\n    return [lst[i:i + n] for i in range(0, len(lst),\
+          \ n)]\n\n\ndef main(classified_obj: Any) -> Dict[str, Any]:\n    base =\
+          \ _to_list(classified_obj)\n    compact = [_compact_for_report(x) for x\
+          \ in base]\n\n    chunk_size = 20\n    chunks = _chunk(compact, chunk_size)\n\
+          \    iter_array = [\n        {\"chunk_index\": i + 1, \"chunks_total\":\
+          \ len(chunks), \"items\": ch}\n        for i, ch in enumerate(chunks)\n\
+          \    ]\n    return {\"items_text\": json.dumps(iter_array, ensure_ascii=False)}"
+        code_language: python3
+        outputs:
+          items_text:
+            children: null
+            type: string
+        selected: false
+        title: Organiza Report
+        type: code
+        variables:
+        - value_selector:
+          - '1772043509905'
+          - classified_items
+          value_type: object
+          variable: classified_obj
+      height: 52
+      id: '1772543845244'
+      position:
+        x: 792.4423581511624
+        y: 459.1242676043424
+      positionAbsolute:
+        x: 792.4423581511624
+        y: 459.1242676043424
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '1772568503478'
+          - text
+          value_type: string
+          variable: report
+        selected: false
+        title: Output 2
+        type: end
+      height: 89
+      id: '1772547940797'
+      position:
+        x: 2256.8057720215434
+        y: 459.1242676043424
+      positionAbsolute:
+        x: 2256.8057720215434
+        y: 459.1242676043424
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1772543845244'
+          - items_text
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemma3:27b
+          provider: langgenius/ollama/ollama
+        prompt_config:
+          jinja2_variables:
+          - value_selector:
+            - '1772543845244'
+            - items_text
+            variable: items_text
+        prompt_template:
+        - edition_type: jinja2
+          id: 3340bb36-749d-4f56-a2e8-d9843ea6877e
+          jinja2_text: "You will generate a weekly report from already classified items.\
+            \ Do not redo classification. Do not change the relevance status.\n\n**Input:**\n\
+            - classified_items.items is a list of objects. Each object may contain:\n\
+            \  - source, vendor, product\n  - title\n  - url\n  - published_at\n \
+            \ - text_summary or summary\n  - relevance (true/false) and relevance_reason\n\
+            \  - signals: pricing, features, regions, performance, security, roadmap,\
+            \ partnership, migration, ops, incidents (may or may not exist)\n  - recommendation\
+            \ (short text already generated in classify) and priority (e.g., P0, P1,\
+            \ P2) and impact_area (e.g., Growth, Retention, Cost, Reliability)\n  - tags,\
+            \ category, competitor, etc\n\n**Items**\n{{ items_text }}\n\n**Objective:**\n\
+            - Produce an executive and actionable report for Product (PostgreSQL, MySQL,\
+            \ and hyperscalers), using ONLY relevant items (is_relevant = true).\n- Do\
+            \ not invent facts. If a field does not exist, ignore it.\n- Every recommendation\
+            \ must cite evidence with at least 1 URL and a brief summary of the excerpt\
+            \ or original content (use text_summary/summary).\n- Do not repeat items. If\
+            \ there are duplicates, consolidate.\n\n**Markdown output format:**\n1)\
+            \ TLDR (5 to 10 bullets)\n2) Main signals of the week (grouped by topic:\
+            \ Pricing, Features, Reliability, Performance, Security, Region/Expansion,\
+            \ Partnerships, Tooling, Ops)\n3) Prioritized recommendations (P0, P1,\
+            \ P2)\n   - For each recommendation: Title, What to do, Why now, Risk/Dependencies,\
+            \ Suggested success metric\n   - Evidence: list 1 to 3 references with:\n\
+            \     - [Short title](URL)\n     - summary of 1 to 2 lines of what supports\
+            \ the recommendation\n4) Appendix\n   - Complete list of relevant items\
+            \ with: vendor/product, title, date, url\n\n**Constraints:**\n- Do not\
+            \ use vague language. Use action verbs.\n- Keep text direct. Avoid long\
+            \ paragraphs."
+          role: system
+          text: ''
+        selected: false
+        title: LLM Report
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1772568503478'
+      position:
+        x: 1542.8362889082266
+        y: 459.1242676043424
+      positionAbsolute:
+        x: 1542.8362889082266
+        y: 459.1242676043424
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: 139.38406322051998
+      y: 182.05108028851714
+      zoom: 0.43286828275982825
+  rag_pipeline_variables: []
