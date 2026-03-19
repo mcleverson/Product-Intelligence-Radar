@@ -1,6 +1,6 @@
 # Product Intelligence Radar
 
-An automated system for collecting and analyzing information about PostgreSQL, MySQL, and database services on hyperscalers (AWS, Azure, etc).
+An automated system for collecting and analyzing information about your competitors.
 
 ## Objectives
 
