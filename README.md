@@ -517,8 +517,8 @@ This project is licensed under the MIT License.
 
 ## Contact
 
-**Team:** Product Radar Team  
-**Email:** product-radar@example.com
+**Team:** Cleverson  
+**Email:** cleverson.gallego@gmail.com
 
 ---
 
